@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sha1: MyString
+  author: MyString
+  commit_date: 2018-02-12
+  comment: MyString
+
+two:
+  sha1: MyString
+  author: MyString
+  commit_date: 2018-02-12
+  comment: MyString

@@ -1,0 +1,3 @@
+class Batch::Base
+  
+end
