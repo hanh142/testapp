@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modfile: MyString
+  sha1: MyString
+  file: MyString
+
+two:
+  modfile: MyString
+  sha1: MyString
+  file: MyString

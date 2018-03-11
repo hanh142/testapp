@@ -1,0 +1,29 @@
+<%= form_for(@modfile) do |f| %>
+  <% if @modfile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@modfile.errors.count, "error") %> prohibited this modfile from being saved:</h2>
+
+      <ul>
+      <% @modfile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :modfile %><br>
+    <%= f.text_field :modfile %>
+  </div>
+  <div class="field">
+    <%= f.label :sha1 %><br>
+    <%= f.text_field :sha1 %>
+  </div>
+  <div class="field">
+    <%= f.label :file %><br>
+    <%= f.text_field :file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

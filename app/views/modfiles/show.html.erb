@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modfile:</strong>
+  <%= @modfile.modfile %>
+</p>
+
+<p>
+  <strong>Sha1:</strong>
+  <%= @modfile.sha1 %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @modfile.file %>
+</p>
+
+<%= link_to 'Edit', edit_modfile_path(@modfile) %> |
+<%= link_to 'Back', modfiles_path %>
