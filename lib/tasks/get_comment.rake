@@ -138,7 +138,7 @@ namespace :get_comment do
  puts "write to modifile.csv"
  a = data_fl.length
  require 'csv'
- rowid = 0;
+ rowid = 1;
   CSV.open("modifile.csv","wb") do |files_csv| 
 	data_fl.each do |row|
 		files_csv << data_fl[rowid]
