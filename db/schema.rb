@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311140132) do
+ActiveRecord::Schema.define(version: 20180318155957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,24 @@ ActiveRecord::Schema.define(version: 20180311140132) do
     t.string   "modfile"
     t.string   "sha1"
     t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "search1s", force: :cascade do |t|
+    t.string   "sha1"
+    t.string   "author"
+    t.date     "date"
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "sha1"
+    t.string   "author"
+    t.date     "date"
+    t.string   "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

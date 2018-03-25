@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<p><%= link_to 'Back', new_search_path %></p>
+<h1>Show</h1>
+
+<table class="table table-list">
+<thead>
+  <tr>
+    <tr>
+      <th>Sha1</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th>Comment</th>
+    </tr>
+  </tr>
+</thead>
+<tbody>
+    <% if @search.search_commits.empty? %>
+	<h3>No records found</h3>	
+    <% else %>
+    <% @search.search_commits.each do |commit| %>
+      <tr>
+        <td><%= commit.sha1 %></td>
+        <td><%= commit.author %></td>
+        <td><%= commit.date %></td>
+        <td><%= commit.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+</table>
+
+

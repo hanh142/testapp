@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Sha1:</strong>
-  <%= @commit.sha1 %>
-</p>
+<h1>Show</h1>
 
-<p>
-  <strong>Author:</strong>
-  <%= @commit.author %>
-</p>
+<table class="table table-list">
+<thead>
+  <tr>
+    <tr>
+      <th>Sha1</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th>Comment</th>
+    </tr>
+  </tr>
+</thead>
+<tbody>
+    <% if @commit.search_commits.empty? %>
+	<h3>No records found</h3>	
+    <% else %>
+    <% @commit.each do |commit| %>
+      <tr>
+        <td><%= commit.sha1 %></td>
+        <td><%= commit.author %></td>
+        <td><%= commit.date %></td>
+        <td><%= commit.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<% end %>
+</table>
 
-<p>
-  <strong>Date:</strong>
-  <%= @commit.date %>
-</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @commit.comment %>
-</p>
-
-<%= link_to 'Edit', edit_commit_path(@commit) %> |
-<%= link_to 'Back', commits_path %>

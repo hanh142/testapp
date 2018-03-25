@@ -1,31 +1,37 @@
 <p id="notice"><%= notice %></p>
+<span style="display:inline-block"><%= link_to "Search by Comment ", "commits" %></span>
+<span style="display:inline-block"><%= link_to "Search by Author", "searches" %></span>
 
-<h1>Listing Modfiles</h1>
+<h1>Search by File</h1>
+ <%= form_tag modfiles_path, :method => 'get' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "SEARCH" %>
+ <% end %>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Modfile</th>
-      <th>Sha1</th>
-      <th>File</th>
-      <th colspan="3"></th>
+      <th>Sha1 </th>
+      <th>Author</th>
+      <th>Comment</th>
+      <th>Date</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @modfiles.each do |modfile| %>
-      <tr>
-        <td><%= modfile.modfile %></td>
-        <td><%= modfile.sha1 %></td>
-        <td><%= modfile.file %></td>
-        <td><%= link_to 'Show', modfile %></td>
-        <td><%= link_to 'Edit', edit_modfile_path(modfile) %></td>
-        <td><%= link_to 'Destroy', modfile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @modfiles.nil? %>
+
+    <% else %>
+	    <% @modfiles.each do |modfile| %>
+	      <tr>
+		<td><%= modfile.sha1 %></td>
+		<td><%= modfile.author %></td>
+		<td><%= modfile.comment %></td>
+		<td><%= modfile.date %></td>
+	      </tr>
+	    <% end %>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Modfile', new_modfile_path %>

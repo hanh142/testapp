@@ -28,7 +28,7 @@ namespace :get_comment do
   data_fl = []
   files_list = [] 
   files_data = ["sha1","files"]
-  data_fl[0] = files_data
+  data_fl[0] = ["sha1","files"]
   commit_index = 0
   file_rowid = 0
   file_sha1 = ""
@@ -122,6 +122,7 @@ namespace :get_comment do
                 rowid += 1		
 	end	
   end
+puts "write to log_data.csv _ end"
 
  require 'csv'
  # write to commit.csv
@@ -133,23 +134,26 @@ namespace :get_comment do
 		rowid += 1   
 	end	
   end
+puts "write to commit.csv _ end "
 
  # write to modifile.csv
  puts "write to modifile.csv"
  a = data_fl.length
  require 'csv'
- rowid = 1;
+ rowid = 0;
   CSV.open("modifile.csv","wb") do |files_csv| 
 	data_fl.each do |row|
 		files_csv << data_fl[rowid]
 		rowid += 1	
 	end
   end
+
+puts "write to modifile.csv _ end "
   
 
  require 'csv'
 
- # insert to commit_tbl table
+ # insert to commit table
  puts "Start to insert to commit table"
   csv_text = File.read("commit.csv")
   csv = CSV.parse(csv_text, :headers => true)
@@ -163,7 +167,7 @@ namespace :get_comment do
   end 
 puts "End to insert to commit table"
 
-# insert to Modfile_Tbl table
+# insert to Modfile table
  puts "Start to insert to Modfile table"
   csv_text = File.read("modifile.csv")
   csv = CSV.parse(csv_text, :headers => true)

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_tag searches_path, :method => 'get' do %>
+	<%= text_field_tag :search_a, params[:search_a] %>
+	<%= submit_tag "SEARCH" %>
+ <% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Files</th>
+      <th>Number of Commit times </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @author.nil? %>
+
+    <% else %>
+	    <% @author.each do |author| %>
+	      <tr>
+		<td><%= author.author %></td>
+		<td><%= author.file %></td>
+		<td><%= author.commitTimes %></td>		
+	      </tr>
+	    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+
